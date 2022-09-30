@@ -1,0 +1,31 @@
+<ion-content no-bounce has-bouncing="false" forceOverscroll="false">
+	<div class="imageitm">
+		<ion-slides>
+            <ion-slide style="display: block;" *ngFor="let item of opntimem;let i = index;">
+                <div style="width: 80%; border-bottom-style: double; margin: 0 10%; float: left; color: #ff4181;">
+                    <h2>
+                        <ion-icon style="float: left; position: relative; top: 7px;" *ngIf="i === 1 || i === 2 || i === 3 || i === 4 || i === 5 || i === 6" name="arrow-back-circle-outline"></ion-icon>{{item.day}}<ion-icon style="float: right; position: relative; top: 7px;" *ngIf="i === 1 || i === 2 || i === 3 || i === 4 || i === 5 || i === 0" name="arrow-forward-circle-outline"></ion-icon>
+                    </h2>
+                </div>
+                
+                <div style="width: 100%; float: left; padding: 10px 5px;" *ngIf='!item.shopclose'>
+                    <ion-row style="margin-top: 15px;">
+                        <ion-col size="5" style="background: #ff4181; color: white; padding: 20px; border-radius: 45px 0px;">{{item.bdast_open}}</ion-col>
+                        <ion-col size="2" style="padding: 18px;">To</ion-col>
+                        <ion-col size="5" style="background: #ff4181; color: white; padding: 20px; border-radius: 45px 0px;">{{item.bdast_close}}</ion-col>
+                    </ion-row>
+                    <ion-row style="margin-top: 15px;">
+                        <ion-col size="5" style="background: #ff4181; color: white; padding: 20px; border-radius: 45px 0px;">{{item.lunch_open}}</ion-col>
+                        <ion-col size="2" style="padding: 18px;">To</ion-col>
+                        <ion-col size="5" style="background: #ff4181; color: white; padding: 20px; border-radius: 45px 0px;">{{item.lunch_close}}</ion-col>
+                    </ion-row>
+                    <ion-row style="margin-top: 15px;">
+                        <ion-col size="5" style="background: #ff4181; color: white; padding: 20px; border-radius: 45px 0px;">{{item.dinner_open}}</ion-col>
+                        <ion-col size="2" style="padding: 18px;">To</ion-col>
+                        <ion-col size="5" style="background: #ff4181; color: white; padding: 20px; border-radius: 45px 0px;">{{item.dinner_close}}</ion-col>
+                    </ion-row>
+                </div>
+            </ion-slide>
+		</ion-slides>
+	</div>
+</ion-content>

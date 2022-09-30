@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar class="header-background-color">
+    <ion-title>{{pgtype}}</ion-title>
+    <ion-menu-button slot="start"></ion-menu-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+	  <ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+
+	<div *ngIf="pgtype == 'Video Gallery'">
+		<div class="padcontr">
+			<div class="offerbox" *ngFor="let item of allProducts">
+				<div class="offer_img" (click)='helovid(item.link)'>
+					<div class="laybtn">
+				     <img src="assets/ytbplay.png">
+				   </div>
+					<img src="https://img.youtube.com/vi/{{item.link}}/0.jpg">
+				</div>
+			</div>
+		</div>
+	</div>
+</ion-content>
+

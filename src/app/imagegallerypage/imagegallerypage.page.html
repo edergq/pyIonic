@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{pgtype}}</ion-title>
+    <ion-menu-button slot="start"></ion-menu-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="container">
+      <figure *ngFor="let item of allProducts">
+        <img src="{{imgpath}}photo_gallery/{{item.image}}" />
+      </figure>
+    </div>
+</ion-content>

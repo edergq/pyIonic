@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "746360066040",
+    "project_id": "v1-beauty-salon-parlour-barber",
+    "storage_bucket": "v1-beauty-salon-parlour-barber.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746360066040:android:4deb036659e0f61626100d",
+        "android_client_info": {
+          "package_name": "salon.v1tl.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "746360066040-i7fp5oof19rjns6bmf4b8v9g7n7kvl43.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQoZ5fY7sE6RhPZdPcTc-ax-eccga3qeI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "746360066040-i7fp5oof19rjns6bmf4b8v9g7n7kvl43.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar class="header-background-color">
+  	 <!-- <ion-back-button slot="start"></ion-back-button> --><ion-menu-button slot="start"></ion-menu-button>
+    <ion-title class="heaerfont">{{title}}</ion-title>
+    <ion-buttons slot="end" (click)='viewmycart()'>
+    	<div class="cartcount" *ngIf='cartcount'>
+    		{{cartcount}}
+    	</div>
+      <ion-icon name="cart-outline" class='headerrighticon'></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+	    <ion-refresher-content></ion-refresher-content>
+	 </ion-refresher>
+   
+   <div class="padcontr">
+    <div class="notcartitm" *ngIf='!isPrd'>
+      <img src="assets/shoppingEmpty.png"><p><span>There is no item for this category</span></p>
+      <div class="brwsmenu" (click)='backmenu()'><span>Browse Menu</span></div>
+    </div>
+    <div *ngIf='isPrd'>
+      <div class="productlists" *ngFor="let item of allProducts">
+        <div>
+          <div class="leftnameandother">
+            <div class="itemname" (click)="openDetailsItem(item)">
+              {{item.name}}
+            </div>
+            <div class="itemdesc" (click)="openDetailsItem(item)" [innerHTML]='item.description'>
+              <!-- <span [innerHTML]='item.description'></span> -->
+            </div>
+          </div>
+          <div class="rightimgsnaothr">
+            <div class="itemimg">
+              <div class="prdimg">
+                <div class="pro_img">
+                  <img src="{{imgpath}}products/{{item.imgs[0]}}" style="border-radius: 8px; width: 100%; height: 100%; object-fit: cover;" (click)="openDetailsItem(item)">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="claer"></div>
+          <div style="margin-top: 2px;">
+            <div class="itemprice">
+              <span><code [innerHTML]='getappsetng?.currency_symbol'></code></span>{{item.price}}
+            </div>
+            <div [style.display]="item.qty?'none':'inherit'" id="addcartbtn_{{item.id}}" class="cardbtn" (click)="addtoCart(item)">
+              <ion-icon name="cart-outline"></ion-icon> {{item.crtbtn}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="claer"></div>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border myfootercart" *ngIf='cartcount'>
+  <div class="leftprice">
+    {{cartcount}} Service(s) | <code [innerHTML]='getappsetng?.currency_symbol'></code>{{carttotal}}<br>
+    
+  </div>
+  <div class="viewcardbtn" (click)='viewmycart()'>
+    View Cart <ion-icon name="cart-outline"></ion-icon>
+  </div>
+  <div class="clear"></div>
+</ion-footer>

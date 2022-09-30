@@ -1,0 +1,47 @@
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { AlertController, MenuController, ModalController } from '@ionic/angular';
+import { BasicApiService } from 'src/Providers/Basic/basic-api.service';
+import { LocalApiService } from 'src/Providers/Local/local-api.service';
+import { ApiService } from 'src/Providers/Services/api.service';
+import { Location } from "@angular/common";
+import { environment } from '../../environments/environment';
+
+@Component({
+  selector: 'app-itemdetails',
+  templateUrl: './itemdetails.page.html',
+  styleUrls: ['./itemdetails.page.scss'],
+})
+export class ItemdetailsPage implements OnInit {
+  @Input() item: any;
+  imgpath: any;
+  getappsetng: any;
+  slideOpts = {
+    initialSlide: 0,
+    autoplay: true,
+    loop: true,
+    speed: 1000,
+    effect: 'fade',
+    pagination: {
+      el: '.swiper-pagination',
+      modifierClass: 'nameyourspecialclass'
+    }
+  };
+  
+  constructor(
+    public menuCtrl: MenuController,
+    public apiService: ApiService,
+    public basic: BasicApiService,
+    public localApi: LocalApiService,
+    public route: Router,
+    public alertController: AlertController,
+    public location: Location,
+    public modalController: ModalController,
+  ) { }
+  
+  ngOnInit() {
+    this.getappsetng  = this.localApi.getappseting();
+    this.imgpath      = environment.imagepath;
+  }
+  
+}

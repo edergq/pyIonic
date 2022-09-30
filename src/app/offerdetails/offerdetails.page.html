@@ -1,0 +1,14 @@
+<ion-content no-bounce has-bouncing="false" forceOverscroll="false">
+	<div class="imageitm">
+		<img style="width: 100%;" src="{{imgpath}}offers/{{item.image}}">
+	</div>
+	<div class="temname">
+		{{item.heading}}
+	</div>
+	
+	<div class="temdesc" style="text-align: justify;" [innerHTML]='item.longdesc'>
+	</div>
+	<div class="priceandvegicn">
+		<img style="width: 35px; position: relative; margin-top: 10px; top: 10px;" src="assets/offeriCon.png"> {{item.offer_code}}
+	</div>
+</ion-content>

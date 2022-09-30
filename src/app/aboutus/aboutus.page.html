@@ -1,0 +1,14 @@
+<ion-header>
+	<ion-toolbar class="header-background-color">
+		 <!-- <ion-back-button slot="start"></ion-back-button> --><ion-menu-button slot="start"></ion-menu-button>
+	  	<ion-title class="heaerfont">{{allProducts?.heading}}</ion-title>
+	</ion-toolbar>
+</ion-header>
+  
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+  
+	<div class="cmsdesc" [innerHTML]='allProducts?.description'></div>
+</ion-content>

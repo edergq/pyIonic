@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar class="header-background-color">
+  	 <!-- <ion-back-button slot="start"></ion-back-button> --><ion-menu-button slot="start"></ion-menu-button>
+    <ion-title class="heaerfont">{{pgtype}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+	    <ion-refresher-content></ion-refresher-content>
+	 </ion-refresher>
+	 <div *ngIf="pgtype == 'Our Team'">
+		<div class="padcontr">
+			<div class="offerbox" *ngFor="let item of allProducts">
+				<div class="offer_img">
+					<img src="{{imgpath}}team/{{item.image}}">
+				</div>
+				<div class="offercode">
+					
+				</div>
+				<div class="offerhead">
+					{{item.name}} <span> - {{item.role}}</span>
+				</div>
+				<div class="offerdescription" [innerHTML]='item.about_me'></div>
+
+				<div class="socialicon">
+					<span class="facebook" *ngIf='item.facebook'><ion-icon name="logo-facebook"></ion-icon></span>
+					<span class="twitter" *ngIf='item.twitter'><ion-icon name="logo-twitter"></ion-icon></span>
+					<span class="instagram" *ngIf='item.instagram'><ion-icon name="logo-instagram"></ion-icon></span>
+					<span class="youtube" *ngIf='item.youtube'><ion-icon name="logo-youtube"></ion-icon></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</ion-content>
+

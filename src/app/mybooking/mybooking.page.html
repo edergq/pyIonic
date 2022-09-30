@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-menu-button slot="start"></ion-menu-button>
+    <ion-title>Appointment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img style="width: 70%; height: 120px; margin: 0px 15%;" src="../../assets/images/logo.png"/>
+  <div class="loginmobilefieldreg">
+    <label>Your full name</label>
+    <input type="text" [(ngModel)]="data.fullname">
+  </div>
+  <div class="loginmobilefieldreg">
+    <label>Your email</label>
+    <input type="email" [(ngModel)]="data.email">
+  </div>
+  <div class="loginmobilefieldreg">
+    <label>Mobile Number</label>
+    <input type="tel" [(ngModel)]="data.mobile" maxlength="11">
+  </div>
+  <div class="loginmobilefieldreg">
+    <label>Message</label>
+    <input type="text" [(ngModel)]="data.descriptions">
+  </div>
+  <div class="loginmobilefieldreg">
+    <label>Select Date and Time</label>
+    <div class="appcoupncd" (click)='opendatetimedel()' *ngIf='!chsdeltime'>
+      <ion-icon name="calendar-outline" style="position: absolute; left: 15px; top: 13px; font-size: 18px; color: #8a8989;"></ion-icon> Select Date
+      <span><ion-icon name="chevron-forward-outline"></ion-icon></span>
+    </div>
+    <div class="appcoupncd" (click)='opendatetimedel()' *ngIf='chsdeltime'>
+      <ion-icon name="calendar-outline" style="position: absolute; left: 15px; top: 13px; font-size: 18px; color: #8a8989;"></ion-icon> Select Time:  {{chsdeltime}}
+      <span><ion-icon name="pencil-outline"></ion-icon></span>
+    </div>
+  </div>
+  <div style="padding: 5px 15px;">
+    <label>Deposit Amount <span style="float: right;"><b>{{getappsetng.currency_symbol}}{{getappsetng.deposit_amount}}</b></span></label>
+  </div>
+  <div class="loginmobilefieldreg">
+    <div class="appcoupncdone" *ngIf='getappsetng.deposit_required == "YES"'>
+        <p>{{getappsetng.deposit_text}}</p>
+    </div>
+  </div>
+  
+  <div class="continuebtn" (click)='booknow()'>
+    Pay Deposit & Book Appointment
+  </div>
+</ion-content>
